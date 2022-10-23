@@ -1,0 +1,114 @@
+--- 
+$engine: 3
+$onesync: on
+author: Andyyy7666
+description: "FiveM character roleplay framework."
+name: "ND Framework"
+tasks: 
+  - 
+    action: download_github
+    src: "https://github.com/Zy0exe/txAdminRecipe"
+    ref: main
+    dest: ./tmp/ndfw
+  - 
+    action: move_path
+    src: ./tmp/ndfw/server.cfg
+    dest: ./server.cfg
+  - 
+    action: move_path
+    src: ./tmp/ndfw/ND.png
+    dest: ./ND.png
+  - 
+    action: connect_database
+  - action: query_database
+    file: ./tmp/ndfw/ndframework.sql
+  - # Defaults
+    action: download_github
+    src: "https://github.com/citizenfx/cfx-server-data"
+    subpath: resources
+    dest: "./resources/[cfx-default]"
+  - 
+    action: download_github
+    dest: "./resources/[standalone]/bob74_ipl"
+    ref: master
+    src: "https://github.com/Bob74/bob74_ipl"
+  - 
+    action: download_github
+    dest: "./resources/[standalone]/screenshot-basic"
+    ref: master
+    src: "https://github.com/citizenfx/screenshot-basic"
+  - 
+    action: download_github
+    dest: "./resources/[standalone]/dpemotes"
+    ref: master
+    src: "https://github.com/Scullyy/dpemotes"
+  - #Voice
+    action: download_github
+    dest: "./resources/[voice]/pma-voice"
+    ref: main
+    src: "https://github.com/AvarianKnight/pma-voice"
+  - #ND FrameWork
+    action: download_github
+    dest: ./resources/[ND]/ND_Core
+    ref: main
+    src: https://github.com/ND-Framework/ND_Core
+  -
+    action: download_github
+    dest: ./resources/[ND]/ND_Fuel
+    ref: main
+    src: https://github.com/ND-Framework/ND_Fuel
+  -
+    action: download_github
+    dest: ./resources/[ND]/ND_Properties
+    ref: main
+    src: https://github.com/ND-Framework/ND_Properties
+  -
+    action: download_github
+    dest: ./resources/[ND]/ND_Doorlocks
+    ref: main
+    src: https://github.com/ND-Framework/ND_Doorlocks
+  -
+    action: download_github
+    dest: ./resources/[ND]/ND_AppearanceShops
+    ref: main
+    src: https://github.com/ND-Framework/ND_AppearanceShops
+  -
+    action: download_github
+    dest: ./resources/[ND]/ND_Characters
+    ref: main
+    src: https://github.com/ND-Framework/ND_Characters
+  -
+    action: download_github
+    dest: ./resources/[ND]/ND_ShotSpotter
+    ref: main
+    src: https://github.com/ND-Framework/ND_ShotSpotter
+  - #Dependencies
+    action: download_github
+    dest: ./resources/[dependencies]/fivem-appearance
+    ref: main
+    src: https://github.com/pedr0fontoura/fivem-appearance
+  - 
+    action: download_file
+    path: ./tmp/ox_lib.zip
+    url: "https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip"
+  - 
+    action: unzip
+    dest: "./resources/[dependencies]"
+    src: ./tmp/ox_lib.zip
+  - 
+    action: download_github
+    dest: "./resources/[dependencies]/ox_target"
+    ref: main
+    src: "https://github.com/overextended/ox_target"
+  - 
+    action: download_file
+    path: ./tmp/oxmysql.zip
+    url: "https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip"
+  - 
+    action: unzip
+    dest: "./resources/[dependencies]"
+    src: ./tmp/oxmysql.zip
+  - 
+    action: remove_path
+    path: ./tmp
+version: "1.0.0"
